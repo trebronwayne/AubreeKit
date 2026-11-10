@@ -32,7 +32,7 @@ jobs:
         run: ./gradlew build --stacktrace
 
       - name: Upload library files (AAR)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: aubree-aar
           path: |
@@ -41,7 +41,7 @@ jobs:
           if-no-files-found: error
 
       - name: Upload sample app
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: sample-debug-apk
           path: sample/build/outputs/apk/debug/*.apk

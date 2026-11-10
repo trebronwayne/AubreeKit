@@ -1,0 +1,71 @@
+name: Release
+
+# Push a tag like v1.0.0 and this workflow builds the library, attaches the AAR files
+# to a GitHub Release and publishes to GitHub Packages.
+# JitPack builds the same tag on demand the first time someone asks for it.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to build, for example 1.0.1 (no leading v)"
+        required: true
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Work out the version
+        id: v
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build
+        run: ./gradlew build -Pversion=${{ steps.v.outputs.version }} --stacktrace
+
+      - name: Publish to GitHub Packages
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew publishAllPublicationsToGitHubPackagesRepository -Pversion=${{ steps.v.outputs.version }}
+
+      - name: Name the release files
+        run: |
+          mkdir -p dist
+          cp aubree/build/outputs/aar/aubree-release.aar "dist/aubree-${{ steps.v.outputs.version }}.aar"
+          cp aubree-compose/build/outputs/aar/aubree-compose-release.aar "dist/aubree-compose-${{ steps.v.outputs.version }}.aar"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.v.outputs.version }}
+          name: Aubree ${{ steps.v.outputs.version }}
+          generate_release_notes: true
+          files: dist/*.aar
+
+      - name: Ask JitPack to build this version
+        continue-on-error: true
+        run: |
+          curl -sS -m 900 -o /dev/null -w "JitPack answered %{http_code}\n" \
+            "https://jitpack.io/com/github/trebronwayne/AubreeKit/aubree/${{ steps.v.outputs.version }}/aubree-${{ steps.v.outputs.version }}.pom"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="aubree_desc_happy">Aubree dancing happily</string>
+    <string name="aubree_desc_sad">Aubree crying under a rain cloud</string>
+    <string name="aubree_desc_ask">Aubree asking a question</string>
+    <string name="aubree_desc_wait">Aubree waiting with a thinking bubble</string>
+    <string name="aubree_desc_celebrate">Aubree celebrating with confetti</string>
+    <string name="aubree_desc_sleepy">Aubree sleeping with a moon and Zzz</string>
+    <string name="aubree_desc_offline">Aubree next to a crossed-out Wi-Fi symbol</string>
+    <string name="aubree_desc_empty">Aubree looking into an empty box</string>
+    <string name="aubree_desc_searching">Aubree searching with a magnifying glass</string>
+    <string name="aubree_desc_typing">Aubree typing on a laptop</string>
+    <string name="aubree_desc_lowbattery">Aubree tired next to a low battery warning</string>
+    <string name="aubree_desc_welcome">Aubree waving hello with hearts</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AubreeView">
+        <!-- Which Aubree to show. Order matches the AubreeState enum. -->
+        <attr name="aubreeState" format="enum">
+            <enum name="happy" value="0" />
+            <enum name="sad" value="1" />
+            <enum name="ask" value="2" />
+            <enum name="wait" value="3" />
+            <enum name="celebrate" value="4" />
+            <enum name="sleepy" value="5" />
+            <enum name="offline" value="6" />
+            <enum name="empty" value="7" />
+            <enum name="searching" value="8" />
+            <enum name="typing" value="9" />
+            <enum name="lowbattery" value="10" />
+            <enum name="welcome" value="11" />
+        </attr>
+    </declare-styleable>
+</resources>

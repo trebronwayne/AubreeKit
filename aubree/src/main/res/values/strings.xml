@@ -12,4 +12,15 @@
     <string name="aubree_desc_typing">Aubree typing on a laptop</string>
     <string name="aubree_desc_lowbattery">Aubree tired next to a low battery warning</string>
     <string name="aubree_desc_welcome">Aubree waving hello with hearts</string>
+    <string name="aubree_desc_pleading">Aubree with big shiny pleading eyes</string>
+    <string name="aubree_desc_touched">Aubree with teary happy eyes, touched</string>
+    <string name="aubree_desc_running">Aubree running fast with speed lines</string>
+    <string name="aubree_desc_pensive">Aubree looking pensive and letting out a sigh</string>
+    <string name="aubree_desc_laughing">Aubree laughing with joyful tears</string>
+    <string name="aubree_desc_fearful">Aubree looking scared with a cold sweat</string>
+    <string name="aubree_desc_screaming">Aubree screaming in shock</string>
+    <string name="aubree_desc_love">Aubree with heart eyes and floating hearts</string>
+    <string name="aubree_desc_angry">Aubree looking angry with a red face</string>
+    <string name="aubree_desc_crying">Aubree crying out loud with streaming tears</string>
+    <string name="aubree_desc_cool">Aubree wearing sunglasses</string>
 </resources>

@@ -1,6 +1,6 @@
 # AubreeKit
 
-Aubree the puppy, ready to drop into any Android app. Twelve animated states, one line of code.
+Aubree the puppy, ready to drop into any Android app. Twenty-three animated states, one line of code.
 
 | State | Use it for |
 |---|---|
@@ -16,6 +16,17 @@ Aubree the puppy, ready to drop into any Android app. Twelve animated states, on
 | `TYPING` | composing, saving text, chat input |
 | `LOW_BATTERY` | low battery or power-saving warning |
 | `WELCOME` | welcome back, onboarding, login success |
+| `PLEADING` | please, begging, soft ask (emoji 🥺) |
+| `TOUCHED` | moved, grateful, happy tears (emoji 🥹) |
+| `RUNNING` | in a hurry, fast, urgent |
+| `PENSIVE` | disappointed, quiet sad (emoji 😔) |
+| `LAUGHING` | funny, delighted (emoji 😆) |
+| `FEARFUL` | warning, risky, nervous (emoji 😨) |
+| `SCREAMING` | shock, critical error (emoji 😱) |
+| `LOVE` | favorite, liked, loved (emoji 😍) |
+| `ANGRY` | blocked, denied, rage (emoji 😠) |
+| `CRYING` | big failure, heartbreak (emoji 😭) |
+| `COOL` | premium, pro, nice work (emoji 😎) |
 
 ## Add it to your app
 
@@ -36,14 +47,14 @@ dependencyResolutionManagement {
 ```kotlin
 dependencies {
     // Classic Views (XML)
-    implementation("com.github.trebronwayne.AubreeKit:aubree:1.0.0")
+    implementation("com.github.trebronwayne.AubreeKit:aubree:1.1.0")
 
     // Jetpack Compose (includes the Views artifact)
-    implementation("com.github.trebronwayne.AubreeKit:aubree-compose:1.0.0")
+    implementation("com.github.trebronwayne.AubreeKit:aubree-compose:1.1.0")
 }
 ```
 
-Groovy: `implementation 'com.github.trebronwayne.AubreeKit:aubree:1.0.0'`
+Groovy: `implementation 'com.github.trebronwayne.AubreeKit:aubree:1.1.0'`
 
 ## Use it
 
@@ -87,18 +98,19 @@ Aubree(state = aubree)
 - Playback stops when the view leaves the screen, so it does not use battery in the background.
 - Each state has a built-in screen-reader description. Set your own with `android:contentDescription`
   (XML) or the `contentDescription` parameter (Compose).
-- The whole library adds about 3.5 MB to your APK before R8, in a single `drawable-nodpi` folder.
+- The whole library adds about 6 MB to your APK before R8, in a single `drawable-nodpi` folder.
 - Minimum SDK 21. Compose wrapper built with Compose BOM 2024.06.00.
 
 ## Try the sample
 
-Open this folder in Android Studio and run the `sample` configuration. It shows all twelve states.
+Open this folder in Android Studio and run the `sample` configuration. It shows all twenty-three states.
 
 ## Project layout
 
 ```
 aubree/            core library: AubreeView, AubreeState, the animation files
 aubree-compose/    Compose wrapper: Aubree(...)
+react/             React component and the same animations for web projects
 sample/            demo app
 .github/workflows/ ci.yml and release.yml
 jitpack.yml        tells JitPack to build with JDK 17
@@ -111,8 +123,8 @@ jitpack.yml        tells JitPack to build with JDK 17
 2. Tag a release:
 
    ```bash
-   git tag v1.0.1
-   git push origin v1.0.1
+   git tag v1.1.1
+   git push origin v1.1.1
    ```
 
 3. The **Release** workflow builds the tag, attaches the two AAR files to a GitHub Release,

@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 /**
- * The twelve things Aubree can say. Order matches the `aubreeState` enum in attrs.xml.
+ * The twenty-three things Aubree can say. Order matches the `aubreeState` enum in attrs.xml.
  *
  * | State      | Use it for                                |
  * |------------|-------------------------------------------|
@@ -20,6 +20,17 @@ import androidx.annotation.StringRes
  * | TYPING     | composing, saving text, chat input        |
  * | LOW_BATTERY| low battery or power-saving warning       |
  * | WELCOME    | welcome back, onboarding, login success   |
+ * | PLEADING   | please, begging, soft ask (emoji 🥺)       |
+ * | TOUCHED    | moved, grateful, happy tears (emoji 🥹)    |
+ * | RUNNING    | in a hurry, fast, urgent                  |
+ * | PENSIVE    | disappointed, quiet sad (emoji 😔)         |
+ * | LAUGHING   | funny, delighted (emoji 😆)                |
+ * | FEARFUL    | warning, risky, nervous (emoji 😨)         |
+ * | SCREAMING  | shock, critical error (emoji 😱)           |
+ * | LOVE       | favorite, liked, loved (emoji 😍)          |
+ * | ANGRY      | blocked, denied, rage (emoji 😠)           |
+ * | CRYING     | big failure, heartbreak (emoji 😭)         |
+ * | COOL       | premium, pro, nice work (emoji 😎)         |
  */
 enum class AubreeState(
     /** Short lowercase name, the same one used in XML (`app:aubreeState="wait"`). */
@@ -39,7 +50,18 @@ enum class AubreeState(
     SEARCHING("searching", R.drawable.aubree_searching, R.drawable.aubree_searching_still, R.string.aubree_desc_searching),
     TYPING("typing", R.drawable.aubree_typing, R.drawable.aubree_typing_still, R.string.aubree_desc_typing),
     LOW_BATTERY("lowbattery", R.drawable.aubree_lowbattery, R.drawable.aubree_lowbattery_still, R.string.aubree_desc_lowbattery),
-    WELCOME("welcome", R.drawable.aubree_welcome, R.drawable.aubree_welcome_still, R.string.aubree_desc_welcome);
+    WELCOME("welcome", R.drawable.aubree_welcome, R.drawable.aubree_welcome_still, R.string.aubree_desc_welcome),
+    PLEADING("pleading", R.drawable.aubree_pleading, R.drawable.aubree_pleading_still, R.string.aubree_desc_pleading),
+    TOUCHED("touched", R.drawable.aubree_touched, R.drawable.aubree_touched_still, R.string.aubree_desc_touched),
+    RUNNING("running", R.drawable.aubree_running, R.drawable.aubree_running_still, R.string.aubree_desc_running),
+    PENSIVE("pensive", R.drawable.aubree_pensive, R.drawable.aubree_pensive_still, R.string.aubree_desc_pensive),
+    LAUGHING("laughing", R.drawable.aubree_laughing, R.drawable.aubree_laughing_still, R.string.aubree_desc_laughing),
+    FEARFUL("fearful", R.drawable.aubree_fearful, R.drawable.aubree_fearful_still, R.string.aubree_desc_fearful),
+    SCREAMING("screaming", R.drawable.aubree_screaming, R.drawable.aubree_screaming_still, R.string.aubree_desc_screaming),
+    LOVE("love", R.drawable.aubree_love, R.drawable.aubree_love_still, R.string.aubree_desc_love),
+    ANGRY("angry", R.drawable.aubree_angry, R.drawable.aubree_angry_still, R.string.aubree_desc_angry),
+    CRYING("crying", R.drawable.aubree_crying, R.drawable.aubree_crying_still, R.string.aubree_desc_crying),
+    COOL("cool", R.drawable.aubree_cool, R.drawable.aubree_cool_still, R.string.aubree_desc_cool);
 
     companion object {
         /** Finds a state by its [id], or returns null. Handy for server-driven screens. */

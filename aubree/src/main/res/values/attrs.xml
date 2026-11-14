@@ -15,6 +15,17 @@
             <enum name="typing" value="9" />
             <enum name="lowbattery" value="10" />
             <enum name="welcome" value="11" />
+            <enum name="pleading" value="12" />
+            <enum name="touched" value="13" />
+            <enum name="running" value="14" />
+            <enum name="pensive" value="15" />
+            <enum name="laughing" value="16" />
+            <enum name="fearful" value="17" />
+            <enum name="screaming" value="18" />
+            <enum name="love" value="19" />
+            <enum name="angry" value="20" />
+            <enum name="crying" value="21" />
+            <enum name="cool" value="22" />
         </attr>
     </declare-styleable>
 </resources>
